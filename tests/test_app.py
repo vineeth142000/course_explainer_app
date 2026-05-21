@@ -57,5 +57,22 @@ class AppTestCase(unittest.TestCase):
         response = self.app.get('/course/0')
         self.assertEqual(response.status_code, 404)
 
+    def test_videos_page(self):
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Videos', response.data)
+
+    def test_videos_contains_course_names(self):
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Introduction to Python', response.data)
+        self.assertIn(b'Web Development with Flask', response.data)
+        self.assertIn(b'Data Science Fundamentals', response.data)
+
+    def test_videos_contains_youtube_embed(self):
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'youtube.com/embed', response.data)
+
 if __name__ == '__main__':
     unittest.main()

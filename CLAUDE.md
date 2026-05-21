@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```
 python src/app.py
 ```
-App runs at `http://127.0.0.1:5000`. Must be run from the project root so that Flask resolves `src/templates/` correctly.
+App runs at `http://127.0.0.1:5001`. Must be run from the project root so that Flask resolves `src/templates/` correctly. Port 5000 is avoided because macOS AirPlay Receiver occupies it.
 
 **Run tests:**
 ```

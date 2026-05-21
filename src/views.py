@@ -8,3 +8,6 @@ def course(course_id):
     if course_id < 1 or course_id > len(courses):
         abort(404)
     return render_template('course.html', course=courses[course_id - 1])
+
+def videos():
+    return render_template('videos.html', courses=courses)
